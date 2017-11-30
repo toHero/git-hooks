@@ -69,6 +69,7 @@ then
 
     echo ""
     echo "Issue ==========================="
+    echo "  subject:     "`echo $issue | get_json_encode "['issue']['subject']"`
     echo "  refs:        $redmine_host/issues/$issue_id"
     echo "  number:      #"`echo $issue | get_json "['issue']['id']"`
     echo "  priority:    "`echo $issue | get_json_encode "['issue']['priority']['name']"`
