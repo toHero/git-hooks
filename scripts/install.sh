@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./config.sh
+source $(dirname $0)/config.sh
 
 sudo mkdir -p ${TOHERO_DIR} && \
 sudo chown ${USER}:${USER} ${TOHERO_DIR} && \
