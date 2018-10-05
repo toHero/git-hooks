@@ -25,3 +25,10 @@ Run as normal user:
 cd /usr/local/share/tohero/git-hooks && \
 git pull
 ```
+
+## Initialise hooks in existing repository
+
+Run as normal user in the reposiroty to initialise:
+```bash
+/usr/local/share/tohero/git-hooks/scripts/init-repo.sh
+```
