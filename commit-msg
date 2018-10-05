@@ -1,9 +1,6 @@
 #!/bin/bash
-# coding: utf-8
 
-if ! (($(git config hook.disabled)))
-then
-
+test_redmine() {
     regex="^\#[0-9]+ \- .*"
     var=`head -n 1 $1`
 
@@ -76,4 +73,20 @@ then
     echo "  create from: "`echo $issue | get_json_encode "['issue']['author']['name']"`
     echo "  assigned to: "`echo $issue | get_json_encode "['issue']['assigned_to']['name']"`
     echo ""
-fi
+}
+
+case "$1" in
+    --about|--help|-h )
+        echo "Git hook run after commit message is written that checks:"
+        echo " - Commit message contains Redmine ticket ID (to disable use the key 'hook.redmine.disabled' in your git configuration)"
+        echo ""
+        echo "To disable all hooks add the key 'hook.disabled' in your git configuration."
+        ;;
+    * )
+        if ! ((`git config hook.disabled`)); then
+            if ! ((`git config hook.redmine.disabled`)); then
+                test_redmine
+            fi
+        fi
+        ;;
+esac
