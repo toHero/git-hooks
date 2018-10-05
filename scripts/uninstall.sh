@@ -9,6 +9,6 @@ do
 done
 
 # Remove git hook repository
-sudo rm -rf ${TOHERO_HOOKS_DIR} 2>/dev/null >&2
+sudo rm -rf "${TOHERO_HOOKS_DIR}" 2>/dev/null >&2
 
-echo "Uninstall succeed"
+echo "Uninstall of toHero hooks succeed"
