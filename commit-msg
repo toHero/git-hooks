@@ -85,7 +85,7 @@ case "$1" in
     * )
         if ! ((`git config hook.disabled`)); then
             if ! ((`git config hook.redmine.disabled`)); then
-                test_redmine
+                test_redmine $1
             fi
         fi
         ;;
