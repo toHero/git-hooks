@@ -29,7 +29,7 @@ test_gofmt() {
         printf "$list"
         exit_code=1
     fi
-    if test 0 -eq ${exit_code}
+    if test 0 -ne ${exit_code}
     then
         exit ${exit_code}
     fi
