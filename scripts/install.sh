@@ -11,6 +11,13 @@ sudo chown "${USER}:${USER}" "${TOHERO_DIR}" || exit 1
 # Clone repository
 git clone "${REPOSITORY}" "${TOHERO_HOOKS_DIR}" || exit 1
 
+# Installing missing python package on Ubuntu 20.04
+if ! command -v python &> /dev/null
+then
+    sudo apt install python -y
+    exit
+fi
+
 # Go inside the git template directory to add links to toHero hooks
 cd "${GIT_HOOKS_TEMPLATE_DIR}" || exit 1
 
