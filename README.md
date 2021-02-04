@@ -32,3 +32,10 @@ Run as normal user in the reposiroty to initialise:
 ```bash
 /usr/local/share/tohero/git-hooks/scripts/init-repo.sh
 ```
+
+## Python and Ubuntu 20.04
+
+If you already installed those hooks on a new install of Ubuntu 20.04 Python may be missing so you must run
+```bash
+sudo apt install python -y
+```
