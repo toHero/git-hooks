@@ -1,9 +1,17 @@
 #!/bin/bash
 
-source $(dirname $0)/config.sh
-
-# Create directory if not exist
-sudo mkdir -p "${TOHERO_DIR}" || exit 1
+_confirm() {
+    echo -n $1 " ? [y/n]"
+    old_stty_cfg=$(stty -g)
+    stty raw -echo
+    answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+    stty $old_stty_cfg
+    echo
+    if echo "$answer" | grep -iq "^y" ;then
+        ${@:2} && return 0
+    fi
+    return 1
+}
 
 # Set right owner if not the case
 sudo chown "${USER}:${USER}" "${TOHERO_DIR}" || exit 1
@@ -14,7 +22,7 @@ git clone "${REPOSITORY}" "${TOHERO_HOOKS_DIR}" || exit 1
 # Installing missing python package on Ubuntu 20.04
 if ! command -v python &> /dev/null
 then
-    sudo apt install python -y
+    _confirm "Python is missing and it is required to run some git hooks features. Do you wish to install it now" sudo apt install python -y
     exit
 fi
 
