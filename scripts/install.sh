@@ -13,6 +13,11 @@ _confirm() {
     return 1
 }
 
+source $(dirname $0)/config.sh
+
+# Create directory if not exist
+sudo mkdir -p "${TOHERO_DIR}" || exit 1
+
 # Set right owner if not the case
 sudo chown "${USER}:${USER}" "${TOHERO_DIR}" || exit 1
 
