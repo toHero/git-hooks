@@ -2,6 +2,14 @@
 
 https://support.tohero.fr/projects/public/wiki/Git_Hooks
 
+## Prerequisite
+
+In order to run correctly, git-hooks need Python and in case it's missing you must run
+```bash
+sudo apt install python
+```
+
+
 ## Install
 
 Run as normal user:
@@ -31,11 +39,4 @@ git pull
 Run as normal user in the reposiroty to initialise:
 ```bash
 /usr/local/share/tohero/git-hooks/scripts/init-repo.sh
-```
-
-## Python and Ubuntu 20.04
-
-If you already installed those hooks on a new install of Ubuntu 20.04 Python may be missing so you must run
-```bash
-sudo apt install python -y
 ```
