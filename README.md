@@ -2,6 +2,14 @@
 
 https://support.tohero.fr/projects/public/wiki/Git_Hooks
 
+## Prerequisite
+
+In order to run correctly, git-hooks need Python and in case it's missing you must run
+```bash
+sudo apt install python
+```
+
+
 ## Install
 
 Run as normal user:
